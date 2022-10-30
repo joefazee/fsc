@@ -11,6 +11,8 @@ supports placeholders.
 
 *Throughout the development process, I have only used the built-in server*
 
+I run PHP 8 on my local development. You can try 7.4
+
 1. Database config is in helpers/functions.php `getDbConnection()`
 2. Import `migrations/up.sql` - MySQL
 3. CD into the project directory and run `php -S 127.0.0.1:8080 -t public`
