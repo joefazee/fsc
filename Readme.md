@@ -29,4 +29,5 @@ Here are some takeaways
 - The most challenging part was the generateRouteRegex inside the Router class. Testing regex is always difficult.
 - The application could use some Unit testing.
 - I left some to-do messages in there.
+- If you want to see some of my cool frontend work, please check out https://ajizzy.com/ - complete php & laravel.
 - I spent 4 hours.
