@@ -44,7 +44,7 @@ class Request
     public function input($key)
     {
         $inputs = $this->inputs();
-        return $inputs[$key] ?? '';
+        return $inputs[$key] ?? ''; //TODO: Add some clean up here
     }
 
     public function files()

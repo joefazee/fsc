@@ -24,6 +24,8 @@ class Application
 
     private Response $response;
 
+    private array $resolvers = [];
+
 
     /**
      * @var \App\Contracts\RouterInterface
@@ -76,6 +78,8 @@ class Application
             $currentRoute['variables'][$i]['data'] = $routeMatches[$currentRoute['variables'][$i]['index']];
         }
 
+        $this->request->mapParams($currentRoute['variables']);
+
         if ($this->isClosure($handler)) {
             return $this->handleClosure($handler);
         } elseif (is_array($handler)) {
@@ -93,7 +97,7 @@ class Application
 
     private function handleClosure($handler)
     {
-        return call_user_func($handler, $this->request, $this->response);
+        return call_user_func($handler, $this->request, $this->response, $this->resolvers);
     }
 
     private function handleClassController($handler)
@@ -104,6 +108,11 @@ class Application
 
         $instance = new $controller();
 
-        return call_user_func([$instance, $action], $this->request, $this->response);
+        return call_user_func([$instance, $action], $this->request, $this->response, $this->resolvers);
+    }
+
+    public function inject($key, $instance)
+    {
+        $this->resolvers[$key] = $instance;
     }
 }

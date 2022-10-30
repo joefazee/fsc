@@ -30,7 +30,7 @@ class Router implements RouterInterface
 
     private string $leftPlaceHolder = '{'; // {username}
 
-    private string $rightPlaceHolder = '{'; // e.g {username}
+    private string $rightPlaceHolder = '}'; // e.g {username}
 
     private static $instance; // ensure we only have a single instance
 
