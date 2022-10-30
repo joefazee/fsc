@@ -23,6 +23,7 @@ function getDbConnection(): mysqli
     $user = $_ENV['DB_USER'] ?? 'root';
     $pass = $_ENV['DB_PASS'] ?? 'root';
     $db = $_ENV['DB_NAME'] ?? 'kevin';
+
     
     return new mysqli($host, $user, $pass, $db);
 }
